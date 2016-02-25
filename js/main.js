@@ -54,6 +54,8 @@ function create() {
     // ball.events.onDragStop.add(stopDrag, this);
 
     // game.add.text(32, 32, 'Drag and release the sprite', { font: '16px Arial', fill: '#ffffff' });
+    //  Click for a new background color
+    game.input.onDown.add(changeColor, this);
 
 }
 var test = 'no';
@@ -76,6 +78,15 @@ function stopDrag() {
 
     //  And re-enable it upon release
     sprite.body.moves = true;
+
+}
+function changeColor() {
+
+    var c = Phaser.Color.getRandomColor(50, 255, 255);
+
+    game.stage.backgroundColor = c;
+
+    game.fd.record(4);
 
 }
 
